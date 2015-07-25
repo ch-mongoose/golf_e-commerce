@@ -1,0 +1,41 @@
+
+<div class="container" ng-controller="ProductsController">
+    <div class="row" id="move-down">
+	  <div class="col-xs-3"></div>   <!-- spacer -->
+		<div class="col-xs-6" id="columne-style">
+			<form class="role" id="padding">
+			  <h2>Add a Product</h2>
+			  <!-- objects and properties nothing scary -->
+			  <div class="form-group">
+				  <label for="Name">Name:</label>
+				  <input class="form-control" type="text" ng-model="new_product.name" placeholder="name">
+			  </div>
+  			  <div class="form-group">
+				  <label for="Product">Image(URL):</label>
+				  <input class="form-control" type="text" ng-model="new_product.image" placeholder="image">
+			  </div>
+  			  <div class="form-group">
+				  <label for="description">Description:</label>
+				  <textarea class="form-control" type="text" ng-model="new_product.description" placeholder="description"></textarea>
+			  </div>
+  			  <div class="form-group">
+	  			  <label for="Brand">Brand:</label>
+				  <input class="form-control" type="text" ng-model="new_product.brand" placeholder="brand">
+			  </div>
+			  <div class="form-group">
+	  			  <label for="Price">Price:</label>
+				  <input class="form-control" type="number" ng-model="new_product.price" placeholder="price">
+			  </div>
+  			  <div class="form-group">
+	  			  <label for="Price">Type:</label>
+				  <input class="form-control" type="text" ng-model="new_product.type" placeholder="type">
+			  </div>
+  			  <div class="form-group">
+				  <input class="form-control btn btn-info hvr-wobble-top" type="submit" ng-click="addProducts()"><br><br>
+			  </div>
+			</form>
+		</div>
+
+
+	</div>
+</div>

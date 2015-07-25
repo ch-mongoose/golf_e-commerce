@@ -1,0 +1,113 @@
+<div class="container-fluid" ng-controller="ProductsController">
+    <div class="row" id="move-down">
+
+		<div class="col-xs-12">
+			<div class="jumbotron" id="shaddow">
+
+				    <div class="col-xs-4">
+					    <h3>Products</h3>
+						<!-- search  -->
+						<input class="form-control" id="search-2" type="text" ng-model="filter_name" placeholder="Search..">
+				    </div>
+
+						<h2 class="block">Products</h2>
+						<p> Browse the products and click on the product images to purchase.</p>
+				<div id="down">
+					<a href="/static/store.html#/products"><button class="btn btn-default hvr-overline-from-center"> Irons </button></a>
+					<a href="/static/store.html#/drivers"><button class="btn btn-default hvr-overline-from-center"> Drivers </button></a>
+					<a href="/static/store.html#/putters"><button class="btn btn-default hvr-overline-from-center"> Putters </button></a>
+					<a href="/static/store.html#/allProducts"><button class="btn btn-default hvr-overline-from-center"> All </button></a>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-xs-12">
+			<div ng-controller="BootstrapController">
+		  <div id="columne-style">
+			<!-- <p>{{current_product}}</p> -->
+
+				<ul class="line" ng-repeat="product in products | filter: filter_name">
+					<button class="hvr-grow-shadow" id="product-button" type="hidden" ng-click="getProduct(product)">
+							<li class="box" style="background-image: url({{product.image}});")></li>
+					</button>
+					<h4 for="name">{{product.name}}</h4>
+					<p>${{product.price}}</p>
+				</ul>
+		   </div>
+				<!-- Modal -->
+				<div id="myModal" class="modal fade" role="dialog">
+				  <div class="modal-dialog">
+
+				    <!-- Modal content-->
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Buy Product</h4>
+				      </div>
+					      <div class="col-xs-5">
+				      <div class="modal-body">
+					      	<h4>{{current_product.name}}</h4>
+							<img src="{{current_product.image}}" alt="current_product">
+					      </div>
+				      </div>
+					 <div class="col-xs-5">
+					 	<p>{{current_product.name}}</p>
+					 	<label for="brand">Brand:</label>
+					 	 <p>{{current_product.brand}}</p>
+					 	<label for="">Price:</label>
+					 	 <p>$ {{current_product.price}}</p>
+					 	<label for="">Description:</label>
+					 	 <p>{{current_product.description}}</p>
+			 			<label for="quantity">Quantity:</label>
+				      	 <input class="form-control" type="number" min="0" name="quantity" ng-model="new_orders.quantity">
+				      	 <input type="button" class="col-xs-12 btn btn-success" value="Buy" ng-click="addOrders()">
+					 </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+
+				  </div>
+				</div>
+
+
+
+					<!-- Modal Controller -->
+					<div ng-controller="ModalController">
+						<a ng-click="promptSomething(product)"><button class="btn btn-success">Buy</button></a>
+
+						<div
+							bn-modals
+							ng-show="subview"
+							class="m-modals"
+							ng-switch="subview">
+							<!-- BEGIN: Prompt Modal. -->
+							<form
+								ng-switch-when="prompt"
+								ng-controller="OpenModalController"
+								ng-submit="submit()"
+								class="modal-new">
+								<p>{{ message }}</p>
+								<p ng-if="errorMessage"><strong>Sorry:</strong> {{ errorMessage }}</p>
+								<p><input type="text" ng-model="form.input" /></p>
+								<p>
+									<a ng-click="submit()">Submit</a>
+									&mdash;
+									<a ng-click="cancel()">Cancel</a>
+								</p>
+							</form>
+							<!-- END: Prompt Modal. -->
+						</div>
+						<!-- END: Modals Layout. -->
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+  </div>
+</div>

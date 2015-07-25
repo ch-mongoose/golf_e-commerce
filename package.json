@@ -1,0 +1,12 @@
+{
+  "name": "FullMean_Customers-Orders",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "body-parser": "*",
+    "fs": "*",
+    "moment": "*",
+    "angular-local-storage": "*"
+  }
+}

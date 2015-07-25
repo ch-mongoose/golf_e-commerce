@@ -1,0 +1,50 @@
+
+    <div class="container-fluid" ng-controller="CustomersController">
+        <div class="row">
+
+            <div class="col-xs-12" id="move-down">
+	            <div class="jumbotron" id="height-control">
+		            <div class="col-xs-4">
+				            <h3>Customers</h3>
+							<!-- search  -->
+							  <input class="form-control" type="text" ng-model="filter_name" placeholder="Search..">
+
+				  		    <h4>Add a Customer</h4>
+							<form role="form" class="form-inline form-inline-xs">
+						    <input id="search-2" class="form-control" type="text" ng-model="new_customer.name" placeholder="name">
+						    <input class="btn btn-success" type="submit" ng-click="addCustomer()"><br>
+						    </form>
+		            </div>
+						<h2>Manage Customers</h2>
+						<p>Add or Delete Customers or look whos visiting the store.</p>
+						<p>Active Customers: {{ countCustomers() }}</p>
+
+	            </div>
+            </div>
+
+
+
+            <h3>Customers</h3>
+
+
+
+
+			<table class="table table-striped">
+				<thead>
+					<tr id="white">
+						<td>Customer's Name</td>
+						<td>Created Date </td>
+						<td>Delete</td>
+					</tr>
+				</thead>
+				<tbody ng-repeat="customer in customers | filter: filter_name">
+					<tr>
+						<td>{{customer.name}}</td>
+						<td>{{customer.created_at}}</td>
+						<td><button class="btn btn-danger" ng-click="removeCustomer(customer)">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+
+        </div>
+    </div>

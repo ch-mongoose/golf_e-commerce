@@ -1,0 +1,48 @@
+
+        <div class="container-fluid" ng-controller="OrdersController">
+            <div class="row" id="move-down">
+
+            <div class="col-xs-12">
+            	<div class="jumbotron">
+
+            		<div class="col-xs-4">
+			            <h3>Orders</h3>
+						<!-- search  -->
+						  <input class="form-control" id="search-2" type="text" ng-model="filter_name" placeholder="Search..">
+					</div>
+
+						<h2 class="block">Orders</h2>
+						<p> View orders made by customers</p>
+            	</div>
+            </div>
+
+				<table class="table table-bordered">
+					<thead>
+						<tr id="white">
+							<td>Customer's Name</td>
+							<td>Product</td>
+							<td>Quantity</td>
+							<td>Total</td>
+							<td>Created Date</td>
+						</tr>
+					</thead>
+					<tbody id="green">
+						<tr ng-repeat="order in orders | filter: filter_name">
+							<td>{{order.name}}</td>
+							<td>{{order.product}}</td>
+							<td>{{order.quantity}}</td>
+							<td>${{order.total}}</td>
+							<td>{{order.created_at}}</td>
+						</tr>
+						<tr id="white">
+							<td>Total Sales</td>
+							<td></td>
+							<td></td>
+							<td>${{ getTotal() }}</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+
+            </div>
+        </div>

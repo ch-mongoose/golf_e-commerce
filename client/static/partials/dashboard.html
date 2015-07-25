@@ -1,0 +1,36 @@
+
+<div class="container" ng-controller="DashboardController">
+    <div class="row" id="move-down">
+		<h2>Dashbaord</h2>
+		<div class="three columns">
+			<!-- search  -->
+			<label for="Search">Search</label>
+			<input type="text" ng-model="filter_name" placeholder="filter">
+			{{filter_name}}
+		</div>
+		<div class="eight columns">
+			<div class="row">
+				<ul class="line" ng-repeat="product in products | filter: filter_name">
+					<li class="box" style="background-image: url({{product.image}});"></li>
+					<label id="center">{{product.name}}</label>
+					<label id="center">({{product.quantity}} left)</label>
+				</ul>
+			</div>
+			<a href="#/products">show more...</a>
+			<h4>Recent Orders</h4>
+			<div class="row" ng-repeat="order in orders | filter: filter_name">
+				<ul>
+					<li>{{order.name}} purchased {{order.quantity}} {{order.product}}</li>
+				</ul>
+			</div>
+			<a href="#/orders">show all orders...</a>
+			<h4>New Customers</h4>
+			<div class="row" ng-repeat="customer in customers | filter: filter_name">
+				<ul>
+					<li>{{customer.name}} joined the store on {{customer.created_at}}</li>
+				</ul>
+			</div>
+			<a href="#/customers">show all customers...</a>
+		</div>
+    </div>
+</div>
